@@ -1,0 +1,71 @@
+/* entire container, keeps perspective */
+.card-container {
+  display: flex;
+  justify-content: space-between;
+
+}
+sa-card {
+  perspective: 1000px;
+  width: 320px;
+  height: 480px;
+
+  &:hover .flipper, &.hover .flipper {
+    transform: rotateY(180deg);
+  }
+
+  /* flip the pane when hovered */
+
+  .front, .back {
+    width: 320px;
+    height: 480px;
+  }
+
+  /* flip speed goes here */
+
+  .flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+
+  /* hide back of pane during swap */
+
+  .front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:320px;
+    height: 480px;
+  }
+
+  /* front pane, placed above back */
+
+  .front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+
+    background-color: #ccc;
+    border: 5px solid darken(#ccc, 5%);
+    color: darken(#ccc, 50%);
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  /* back, initially hidden pane */
+
+  .back {
+    transform: rotateY(180deg);
+    background-color: #999;
+    border: 5px solid darken(#999, 5%);
+    color: lighten(#999, 70%);
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

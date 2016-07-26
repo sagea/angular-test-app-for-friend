@@ -1,0 +1,61 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+body {
+  margin-top: 100px;
+
+}
+.dropdown {
+
+  .dropdown-title {
+    cursor: pointer;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100px;
+  }
+
+  &:hover {
+    .dropdown-menu {
+      display: block;
+    }
+  }
+
+}
+
+.content {
+  width: 100%;
+
+  &.ng-enter {
+    position: absolute;
+    opacity: 0;
+    transition: all 250ms;
+    transform: scale(0);
+
+    &.ng-enter-active {
+
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  &.ng-leave {
+    opacity: 1;
+    transition: all 250ms;
+    transform: scale(1);
+    position: absolute;
+
+    &.ng-leave-active {
+      opacity: 1;
+      transform: scale(0);
+    }
+  }
+  .page {
+    max-width: 1000px;
+    margin: auto;
+  }
+}
